@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Favorites - Book Explorer</title>
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-
 <body class="bg-nude text-darkText flex flex-col min-h-screen">
 
   <!-- Navbar -->
@@ -16,29 +15,24 @@
       <nav>
         <ul class="flex space-x-6 text-darkText font-medium">
           <li><a href="index.html" class="hover:text-accent transition">Home</a></li>
-          <li><a href="#favorite" class="hover:text-accent transition">Favorite</a></li>
+          <li><a href="favorite.html" class="hover:text-accent transition">Favorite</a></li>
           <li><a href="about.html" class="hover:text-accent transition">About</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="relative bg-nude h-[200px] flex items-center justify-center">
-    <h1 class="text-4xl font-bold text-darkText">Your Favorite Books</h1>
-  </section>
+  <!-- Favorites Section -->
+  <main class="max-w-6xl mx-auto px-6 py-12">
+    <h1 class="text-3xl font-bold text-accent mb-6">Your Favorites ❤️</h1>
+    <p id="no-favorites" class="text-center text-darkText/70 hidden">
+      You don’t have any favorite books yet. Go explore some!
+    </p>
+    <div id="favorites-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6"></div>
+  </main>
 
-  <!-- Favorites Grid -->
-  <section id="favorites" class="max-w-6xl mx-auto px-6 py-12">
-    <div id="favorites-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-      <!-- Favorite book cards injected here via JS -->
-    </div>
-    <p id="no-favorites" class="text-center text-neutral-500 mt-6 hidden">You have no favorite books yet.</p>
-  </section>
->
-
- <!-- Footer -->
-  <footer class="bg-green-100 text-darkText">
+  <!-- Footer -->
+  <footer class="bg-green-100 text-darkText mt-auto">
     <div class="max-w-6xl mx-auto px-4 py-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
       <div class="space-y-4">
         <h2 class="text-2xl font-bold text-accent">Book Explorer</h2>
@@ -64,6 +58,7 @@
         <p class="text-sm">Email: <a href="mailto:aurore.nezah@gmail.com" class="hover:text-[#d4a373]">aurore.nezah@gmail.com</a></p>
       </div>
     </div>
+
     <div class="border-t border-gray-300 mt-6">
       <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-center text-sm text-[#7a6b5a]">
         <p>&copy; 2025 Book Explorer. All rights reserved.</p>
@@ -71,8 +66,3 @@
       </div>
     </div>
   </footer>
-
-  
-  
-</body>
-</html>
