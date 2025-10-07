@@ -134,3 +134,12 @@ function removeFavorite(bookKey) {
   localStorage.setItem('favorites', JSON.stringify(favorites));
   loadFavorites(); // refresh favorites view
 }
+// Redirect to favorites page
+const viewFavButton = document.getElementById("view-favorites");
+
+if (viewFavButton) {
+  viewFavButton.addEventListener("click", () => {
+    window.location.href = "favorite.html";
+  });
+}
+
