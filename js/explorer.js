@@ -1,10 +1,10 @@
 // js/explore.js
-import { addFavorite } from './favorites.js';
+import { addFavorite } from './favorite.js';
 
 const API_URL = "https://openlibrary.org/search.json?q=romance"; // default category
 
 export async function loadBooks() {
-  const grid = document.getElementById("books-grid");
+  const grid = document.getElementById("favorites-grid");
   grid.innerHTML = `<p class="col-span-full text-center text-gray-600">⏳ Loading books...</p>`;
 
   try {
@@ -39,7 +39,7 @@ export async function loadBooks() {
         btn.textContent = "✅ Added!";
         btn.disabled = true;
       });
-
+      
       grid.appendChild(card);
     });
   } catch (err) {
