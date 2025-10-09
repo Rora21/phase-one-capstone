@@ -1,4 +1,5 @@
 // js/main.js
+
 document.addEventListener('DOMContentLoaded', () => {
   const exploreBtn = document.getElementById('exploreBtn');
   const exploreSection = document.getElementById('explore-section');
@@ -135,11 +136,11 @@ function removeFavorite(bookKey) {
   loadFavorites(); // refresh favorites view
 }
 // Redirect to favorites page
-const viewFavButton = document.getElementById("view-favorites");
+// const viewFavButton = document.getElementById("view-favorites");
 
-if (viewFavButton) {
-  viewFavButton.addEventListener("click", () => {
-    window.location.href = "favorite.html";
-  });
-}
+// if (viewFavButton) {
+//   viewFavButton.addEventListener("click", () => {
+//     window.location.href = "favorite.html";
+//   });
+// }
 

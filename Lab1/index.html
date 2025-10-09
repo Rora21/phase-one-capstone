@@ -3,118 +3,95 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Book Explorer</title>
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-<body class="bg-[#f8f5f2] text-[#3e3e3e]">
-  
+<body class="bg-[#f8f5f2] text-[#3e3e3e] flex flex-col min-h-screen">
+
   <!-- 🧭 Navbar -->
-  <header class="bg-brown-200 px-6 py-4 shadow-md">
+  <header class="bg-[#c89b77]/20 px-6 py-4 shadow-md">
     <div class="max-w-6xl mx-auto flex justify-between items-center">
-      <a href="index.html" class="text-2xl font-bold text-accent">📚 Book Explorer</a>
+      <a href="index.html" class="text-2xl font-bold text-[#c89b77]">📚 Book Explorer</a>
       <nav>
-        <ul class="flex space-x-6 text-darkText font-medium">
-          <li><a href="index.html" class="hover:text-accent transition">Home</a></li>
-         <li><a href="favorite.html" class="hover:text-accent transition">Favorite</a></li>
-          <li><a href="about.html" class="hover:text-accent transition">About</a></li>
+        <ul class="flex space-x-6 font-medium">
+          <li><a href="index.html" class="hover:text-[#c89b77] transition">Home</a></li>
+          <li><a href="favorite.html" class="hover:text-[#c89b77] transition">Favorite</a></li>
+          <li><a href="about.html" class="hover:text-[#c89b77] transition">About</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <!-- 🌟 Hero Section -->
-  <section class="pt-24  bg-white py-32 min-h-screen flex flex-col justify-center items-center " style="background-image : url('../js/assets/download\ \(1\).jpeg');">
-    <h1 class="text-4xl md:text-5xl font-bold mb-4 text-darkText">Discover the World of Stories</h1>
-    <p class="text-lg text-darkText mb-6">Dive into captivating tales and explore books that move your soul.</p>
-    <button id="exploreBtn" class="bg-green-100 text-darkText px-6 py-3 rounded-full hover:bg-green-200 transition">
-  Explore Books
-</button>
-
+  <section class="pt-24 bg-white py-32 min-h-screen flex flex-col justify-center items-center"
+           style="background-image: url('../js/assets/hero-image.png');">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4 text-gray-100">Discover the World of Stories</h1>
+    <p class="text-lg mb-6 text-gray-200">Dive into captivating tales and explore books that move your soul.</p>
+    <button id="exploreBtn" class="bg-green-100 px-6 py-3 rounded-full hover:bg-green-200 transition">
+      Explore Books
+    </button>
   </section>
 
-  <!-- 🌍 Explore Section (Hidden by default) -->
-<section id="explore-section" class="hidden pt-28 max-w-6xl mx-auto px-4 py-12">
-  <h2 class="text-3xl font-bold text-center mb-6">Explore Books</h2>
+  <!-- 🌍 Explore Section -->
+  <section id="explore-section" class="hidden pt-28 max-w-6xl mx-auto px-4 py-12">
+    <h2 class="text-3xl font-bold text-center mb-6">Explore Books</h2>
 
-  <!-- View Favorites Button -->
-<div class="text-center mb-8">
-  <button id="viewFavorites" class="bg-accent text-darkText px-6 py-2 rounded hover:bg-black transition">
-    View Favorites ❤️
-  </button>
-</div>
-
-
-  <!-- Search Bar -->
-  <div class="flex justify-center mb-8">
-    <input id="searchInput" type="text" placeholder="Search for books..."
-      class="border border-gray-300 rounded-l-lg p-2 w-2/3 md:w-1/2 focus:outline-none">
-    <button id="searchBtn" class="bg-green-100 text-darkText px-4 rounded-r-lg hover:bg-green-200 transition">Search</button>
-  </div>
-
-  <!-- Books Grid -->
-  <div id="booksGrid" class="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-
-  </div>
-
-  <p id="noResults" class="text-center text-gray-500 hidden">No books found. Try another search.</p>
-</section>
-
-<section id="favorites-section" class="hidden">
-  <div id="favoritesGrid"></div>
-  <p id="noFavorites">No favorites yet</p>
-</section>
-
-
-<section id="favorites-section" class="hidden max-w-6xl mx-auto px-6 py-12">
-  <h2 class="text-3xl font-bold text-accent mb-6">Your Favorites ❤️</h2>
-  <p id="noFavorites" class="text-center text-darkText/70 hidden">
-    You don’t have any favorite books yet. Go explore some!
-  </p>
-  <div id="favoritesGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6"></div>
-</section>
-
-
-      </section>
-      <!-- 🦶 Footer -->
-    <footer class="bg-brown-200 text-darkText">
-  <div class="max-w-6xl mx-auto px-4 py-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-<!-- Branding & mission -->
-    <div class="space-y-4">
-      <h2 class="text-2xl font-bold text-[#c89b77]">Book Explorer</h2>
-      <p class="text-sm text-[#5b4d44]">
-        Discover your next favorite story. We connect readers with books that uplift, educate, and entertain.
-      </p>
-    </div>
-    <!-- Legal & Policies -->
-    <div>
-      <h3 class="font-semibold mb-3">Legal</h3>
-      <ul class="space-y-2 text-sm">
-        <li><a href="#" class="hover:text-[#d4a373]">Privacy Policy</a></li>
-        <li><a href="#" class="hover:text-[#d4a373]">Terms of Service</a></li>
-        <li><a href="#" class="hover:text-[#d4a373]">Cookies Policy</a></li>
-      </ul>
-    </div>
-      <!-- Contact / Social -->
-    <div class="space-y-4">
-      <h3 class="font-semibold mb-3">Connect With Us</h3>
-      <ul class="flex space-x-4">
-        <li><a href="#" class="hover:text-[#d4a373]">Facebook</a></li>
-        <li><a href="#" class="hover:text-[#d4a373]">Twitter</a></li>
-        <li><a href="#" class="hover:text-[#d4a373]">Instagram</a></li>
-      </ul>
-      <p class="text-sm">Email: <a href="aurore.nezah@gmail.com" class="hover:text-[#d4a373]">aurore.nezah@gmail.com</a></p>
+    <!-- View Favorites Button -->
+    <div class="text-center mb-8">
+      <a href="favorite.html" class="bg-[#c89b77] text-white px-6 py-2 rounded hover:bg-black transition">
+        View Favorites ❤️
+      </a>
     </div>
 
-  </div>
-
-  <div class="border-t border-gray-300 mt-6">
-    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-center text-sm text-[#7a6b5a]">
-      <p>&copy; 2025 Book Explorer. All rights reserved.</p>
-      <p>Made with love for readers everywhere.</p>
+    <!-- Search Bar -->
+    <div class="flex justify-center mb-8">
+      <input id="searchInput" type="text" placeholder="Search for books..."
+             class="border border-gray-300 rounded-l-lg p-2 w-2/3 md:w-1/2 focus:outline-none">
+      <button id="searchBtn" class="bg-green-100 px-4 rounded-r-lg hover:bg-green-200 transition">Search</button>
     </div>
-  </div>
-    </footer>
-    <script type="module" src="../js/main.js"></script>
 
+    <!-- Books Grid -->
+    <div id="booksGrid" class="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"></div>
+
+    <p id="noResults" class="text-center text-gray-500 hidden">No books found. Try another search.</p>
+  </section>
+
+  <!-- 🦶 Footer -->
+  <footer class="bg-[#c89b77]/20 text-[#3e3e3e] mt-auto">
+    <div class="max-w-6xl mx-auto px-4 py-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+      <div class="space-y-4">
+        <h2 class="text-2xl font-bold text-[#c89b77]">Book Explorer</h2>
+        <p class="text-sm text-[#5b4d44]">
+          Discover your next favorite story. We connect readers with books that uplift, educate, and entertain.
+        </p>
+      </div>
+      <div>
+        <h3 class="font-semibold mb-3">Legal</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#" class="hover:text-[#d4a373]">Privacy Policy</a></li>
+          <li><a href="#" class="hover:text-[#d4a373]">Terms of Service</a></li>
+          <li><a href="#" class="hover:text-[#d4a373]">Cookies Policy</a></li>
+        </ul>
+      </div>
+      <div class="space-y-4">
+        <h3 class="font-semibold mb-3">Connect With Us</h3>
+        <ul class="flex space-x-4">
+          <li><a href="#" class="hover:text-[#d4a373]">Facebook</a></li>
+          <li><a href="#" class="hover:text-[#d4a373]">Twitter</a></li>
+          <li><a href="#" class="hover:text-[#d4a373]">Instagram</a></li>
+        </ul>
+        <p class="text-sm">Email: <a href="mailto:aurore.nezah@gmail.com" class="hover:text-[#d4a373]">aurore.nezah@gmail.com</a></p>
+      </div>
+    </div>
+
+    <div class="border-t border-gray-300 mt-6">
+      <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-center text-sm text-[#7a6b5a]">
+        <p>&copy; 2025 Book Explorer. All rights reserved.</p>
+        <p>Made with love for readers everywhere.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="../js/main.js"></script>
 </body>
 </html>

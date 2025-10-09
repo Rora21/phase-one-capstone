@@ -1,40 +1,42 @@
-// js/favorites-page.js
-import { getFavorites, removeFavorite } from './favorites.js';
+import { getFavorites, removeFavorite } from "./favorite.js";
 
-export function loadFavorites() {
-  const grid = document.getElementById('favorites-grid');
-  const noFav = document.getElementById('no-favorites');
+
+
+const favoritesGrid = document.getElementById("favorites-grid");
+const noFavorites = document.getElementById("no-favorites");
+
+// 1️⃣ Get favorites from localStorage
   const favorites = getFavorites();
 
-  if (!favorites.length) {
-    noFav.classList.remove('hidden');
-    grid.innerHTML = '';
+  // 2️⃣ Clear the grid
+  favoritesGrid.innerHTML = "";
+
+  // 3️⃣ If no favorites → show message
+  if (favorites.length === 0) {
+    noFavorites.classList.remove("hidden");
     return;
   } else {
-    noFav.classList.add('hidden');
+    noFavorites.classList.add("hidden");
   }
 
-  grid.innerHTML = '';
-
-  favorites.forEach(book => {
-    const card = document.createElement('div');
-    card.className = 'bg-white rounded-lg shadow p-4 flex flex-col';
+  // 4️⃣ Display favorite books
+  favorites.forEach((book) => {
+    const card = document.createElement("div");
+    card.className = "bg-white rounded-lg shadow p-4 flex flex-col";
 
     card.innerHTML = `
-      <img src="${book.cover}" alt="${book.title}" class="h-48 w-full object-cover mb-4 rounded">
+      <img src="${book.cover}" alt="${book.title}" class="h-56 w-full object-cover mb-4 rounded">
       <h3 class="font-semibold text-lg mb-1">${book.title}</h3>
-      <p class="text-sm mb-2 text-darkText/70">${book.author}</p>
-      <button class="mt-auto py-2 px-3 rounded bg-accent text-white hover:bg-[#b68966]">
-        Remove Favorite
-      </button>
+      <p class="text-sm mb-3">${book.author}</p>
+      <button class="mt-auto py-2 px-3 rounded bg-red-200 hover:bg-red-300 transition">Remove</button>
     `;
 
-    const btn = card.querySelector('button');
-    btn.addEventListener('click', () => {
-      removeFavorite(book.key);
-      loadFavorites(); // ✅ refreshes the list after removal
-    });
+    const removeBtn = card.querySelector("button");
+    removeBtn.addEventListener("click", () => {
+      removeFavorite(book.key);  // 🗑 remove from localStorage
+      loadFavorites();           // 🔁 refresh the page
+    }); 
 
-    grid.appendChild(card);
+    favoritesGrid.appendChild(card);
   });
-}
+
